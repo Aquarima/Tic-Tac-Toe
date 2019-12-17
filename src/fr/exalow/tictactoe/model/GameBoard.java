@@ -1,0 +1,42 @@
+package fr.exalow.tictactoe.model;
+
+import fr.exalow.tictactoe.entities.Point;
+
+public class GameBoard {
+
+    private char[][] board = new char[3][3];
+
+    public void initialize() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = ' ';
+            }
+        }
+    }
+
+    public void display() {
+        System.out.println("    0   1   2");
+        System.out.println("  -------------");
+        for (int i = 0; i < 3; i++) {
+            System.out.print(i + " | ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " | ");
+            }
+            System.out.println();
+            System.out.println("  -------------");
+        }
+    }
+
+    public boolean isFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == ' ') return false;
+            }
+        }
+        return true;
+    }
+
+    public void setTokenAtPos(char token, Point position) {
+        board[position.getX()][position.getY()] = token;
+    }
+}
