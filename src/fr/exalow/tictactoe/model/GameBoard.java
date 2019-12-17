@@ -18,8 +18,7 @@ public class GameBoard {
         for (int i = 0; i < 3; i++) {
             System.out.print(i + " | ");
             for (int j = 0; j < 3; j++) {
-                System.err.print(board[i][j]);
-                System.out.print(" | ");
+                System.out.print(board[i][j] + " | ");
             }
             System.out.println();
             System.out.println("  -------------");
