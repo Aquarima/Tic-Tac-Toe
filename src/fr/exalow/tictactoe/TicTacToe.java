@@ -25,16 +25,23 @@ public class TicTacToe {
 
         final Scanner sc = new Scanner(System.in);
 
-        while (!isGameOver()) {
+        while (true) {
+
             board.display();
+
             System.out.print("\n" + currentPlayer.getName() + " [" + currentPlayer.getToken() + "] Coordinates '0:0' : ");
             String[] args = sc.nextLine().split(":");
+
             Point position = new Point(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
             board.setTokenAtPos(currentPlayer.getToken(), position);
             currentPlayer.addConqueredPoint(position);
+
+            if (currentPlayer.checkForWin()) {
+                stop();
+                break;
+            }
             switchCurrentPlayer();
         }
-        stop();
     }
 
     private void switchCurrentPlayer() {

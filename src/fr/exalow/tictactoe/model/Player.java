@@ -14,14 +14,14 @@ public class Player {
     public Player(String name, char token) {
         this.name = name;
         this.token = token;
-        winCases.add(Arrays.asList(new Point(0, 0), new Point(0, 1), new Point(0, 2)));
-        winCases.add(Arrays.asList(new Point(1, 0), new Point(1, 1), new Point(1, 2)));
-        winCases.add(Arrays.asList(new Point(2, 0), new Point(2, 1), new Point(2, 2)));
-        winCases.add(Arrays.asList(new Point(0, 0), new Point(1, 0), new Point(2, 2)));
-        winCases.add(Arrays.asList(new Point(0, 1), new Point(1, 1), new Point(2, 1)));
-        winCases.add(Arrays.asList(new Point(0, 2), new Point(1, 2), new Point(2, 2)));
-        winCases.add(Arrays.asList(new Point(0, 0), new Point(1, 1), new Point(2, 2)));
-        winCases.add(Arrays.asList(new Point(2, 0), new Point(1, 1), new Point(0, 2)));
+        this.winCases.add(Arrays.asList(new Point(0, 0), new Point(0, 1), new Point(0, 2)));
+        this.winCases.add(Arrays.asList(new Point(1, 0), new Point(1, 1), new Point(1, 2)));
+        this.winCases.add(Arrays.asList(new Point(2, 0), new Point(2, 1), new Point(2, 2)));
+        this.winCases.add(Arrays.asList(new Point(0, 0), new Point(1, 0), new Point(2, 2)));
+        this.winCases.add(Arrays.asList(new Point(0, 1), new Point(1, 1), new Point(2, 1)));
+        this.winCases.add(Arrays.asList(new Point(0, 2), new Point(1, 2), new Point(2, 2)));
+        this.winCases.add(Arrays.asList(new Point(0, 0), new Point(1, 1), new Point(2, 2)));
+        this.winCases.add(Arrays.asList(new Point(2, 0), new Point(1, 1), new Point(0, 2)));
     }
 
     public boolean checkForWin() {
@@ -35,7 +35,6 @@ public class Player {
 
     public void addConqueredPoint(Point point) {
         conqueredPoints.add(point);
-        System.out.println(conqueredPoints);
     }
 
     public String getName() {
