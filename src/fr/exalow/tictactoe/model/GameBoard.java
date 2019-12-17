@@ -1,7 +1,5 @@
 package fr.exalow.tictactoe.model;
 
-import fr.exalow.tictactoe.entities.Point;
-
 public class GameBoard {
 
     private char[][] board = new char[3][3];
