@@ -1,6 +1,6 @@
 package fr.exalow.tictactoe;
 
-import fr.exalow.tictactoe.entities.Player;
+import fr.exalow.tictactoe.model.Player;
 
 public class Main {
 

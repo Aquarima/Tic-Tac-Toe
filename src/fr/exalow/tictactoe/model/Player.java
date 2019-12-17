@@ -7,30 +7,26 @@ import java.util.List;
 public class Player {
 
     private List<Point> conqueredPoints = new ArrayList<>();
+    private List<List<Point>> winCases = new ArrayList<>();
     private String name;
     private char token;
 
     public Player(String name, char token) {
         this.name = name;
         this.token = token;
+        winCases.add(Arrays.asList(new Point(0, 0), new Point(0, 1), new Point(0, 2)));
+        winCases.add(Arrays.asList(new Point(1, 0), new Point(1, 1), new Point(1, 2)));
+        winCases.add(Arrays.asList(new Point(2, 0), new Point(2, 1), new Point(2, 2)));
+        winCases.add(Arrays.asList(new Point(0, 0), new Point(1, 0), new Point(2, 2)));
+        winCases.add(Arrays.asList(new Point(0, 1), new Point(1, 1), new Point(2, 1)));
+        winCases.add(Arrays.asList(new Point(0, 2), new Point(1, 2), new Point(2, 2)));
+        winCases.add(Arrays.asList(new Point(0, 0), new Point(1, 1), new Point(2, 2)));
+        winCases.add(Arrays.asList(new Point(2, 0), new Point(1, 1), new Point(0, 2)));
     }
 
     public boolean checkForWin() {
-
-        final List<List<Point>> validPoints = new ArrayList<>();
-        validPoints.add(Arrays.asList(new Point(0, 0), new Point(0, 1), new Point(0, 2)));
-        validPoints.add(Arrays.asList(new Point(1, 0), new Point(1, 1), new Point(1, 2)));
-        validPoints.add(Arrays.asList(new Point(2, 0), new Point(2, 1), new Point(2, 2)));
-        validPoints.add(Arrays.asList(new Point(0, 0), new Point(1, 0), new Point(2, 2)));
-        validPoints.add(Arrays.asList(new Point(0, 1), new Point(1, 1), new Point(2, 1)));
-        validPoints.add(Arrays.asList(new Point(0, 2), new Point(1, 2), new Point(2, 2)));
-        validPoints.add(Arrays.asList(new Point(0, 0), new Point(1, 1), new Point(2, 2)));
-        validPoints.add(Arrays.asList(new Point(2, 0), new Point(1, 1), new Point(0, 2)));
-
-        for (int i = 0; i < validPoints.size(); i++) {
-            if (conqueredPoints.containsAll(validPoints.get(i))) {
-                return true;
-            }
+        for (int i = 0; i < winCases.size(); i++) {
+            return conqueredPoints.contains(winCases.get(i));
         }
         return false;
     }

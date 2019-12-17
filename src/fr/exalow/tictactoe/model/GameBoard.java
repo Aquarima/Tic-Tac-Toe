@@ -13,7 +13,7 @@ public class GameBoard {
     }
 
     public void display() {
-        System.out.println("    0   1   2");
+        System.out.println("\n    0   1   2");
         System.out.println("  -------------");
         for (int i = 0; i < 3; i++) {
             System.out.print(i + " | ");
@@ -35,7 +35,13 @@ public class GameBoard {
         return true;
     }
 
-    public void setTokenAtPos(char token, Point position) {
+    public boolean setTokenAtPos(char token, Point position) {
+        if (position == null) return false;
+        if (board[position.getX()][position.getY()] != ' ') {
+            System.err.println("\nThis case is already used, Please choose an other...");
+            return false;
+        }
         board[position.getX()][position.getY()] = token;
+        return true;
     }
 }

@@ -1,7 +1,7 @@
 package fr.exalow.tictactoe;
 
-import fr.exalow.tictactoe.entities.Player;
-import fr.exalow.tictactoe.entities.Point;
+import fr.exalow.tictactoe.model.Player;
+import fr.exalow.tictactoe.model.Point;
 import fr.exalow.tictactoe.model.GameBoard;
 
 import java.util.Scanner;
@@ -22,13 +22,19 @@ public class TicTacToe {
     }
 
     public void run() {
+
         final Scanner sc = new Scanner(System.in);
+
         while (!isGameOver()) {
             board.display();
-            System.out.print("\n" + currentPlayer.getName() + " [" + currentPlayer.getToken() + "] Coordinates ex (1:2) : ");
-            String[] args = sc.nextLine().split(":");
-            Point position = new Point(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
-            board.setTokenAtPos(currentPlayer.getToken(), position);
+
+            Point position;
+
+            do {
+                System.out.print("\n" + currentPlayer.getName() + " [" + currentPlayer.getToken() + "] Coordinates '0:0' : ");
+                String[] args = sc.nextLine().split(":");
+                position = new Point(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+            } while (!board.setTokenAtPos(currentPlayer.getToken(), position));
             currentPlayer.addConqueredPoint(position);
             switchCurrentPlayer();
         }
