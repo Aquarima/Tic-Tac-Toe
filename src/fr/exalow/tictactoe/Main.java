@@ -12,7 +12,7 @@ public class Main {
 
         System.out.print("(Player 1) Name : ");
         Player p1 = new Player(scan.nextLine(), 'X');
-        System.out.print("(Player 1) Name : ");
+        System.out.print("(Player 2) Name : ");
         Player p2 = new Player(scan.nextLine(), 'O');
 
         new TicTacToe(p1, p2).run();
