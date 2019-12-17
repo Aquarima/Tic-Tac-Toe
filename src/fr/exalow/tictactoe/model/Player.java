@@ -26,13 +26,16 @@ public class Player {
 
     public boolean checkForWin() {
         for (int i = 0; i < winCases.size(); i++) {
-            return conqueredPoints.contains(winCases.get(i));
+            if (conqueredPoints.containsAll(winCases.get(i))) {
+                return true;
+            }
         }
         return false;
     }
 
     public void addConqueredPoint(Point point) {
         conqueredPoints.add(point);
+        System.out.println(conqueredPoints);
     }
 
     public String getName() {

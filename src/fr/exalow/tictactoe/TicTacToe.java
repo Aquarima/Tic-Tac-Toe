@@ -27,14 +27,10 @@ public class TicTacToe {
 
         while (!isGameOver()) {
             board.display();
-
-            Point position;
-
-            do {
-                System.out.print("\n" + currentPlayer.getName() + " [" + currentPlayer.getToken() + "] Coordinates '0:0' : ");
-                String[] args = sc.nextLine().split(":");
-                position = new Point(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
-            } while (!board.setTokenAtPos(currentPlayer.getToken(), position));
+            System.out.print("\n" + currentPlayer.getName() + " [" + currentPlayer.getToken() + "] Coordinates '0:0' : ");
+            String[] args = sc.nextLine().split(":");
+            Point position = new Point(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+            board.setTokenAtPos(currentPlayer.getToken(), position);
             currentPlayer.addConqueredPoint(position);
             switchCurrentPlayer();
         }

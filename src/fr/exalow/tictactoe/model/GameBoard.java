@@ -35,13 +35,7 @@ public class GameBoard {
         return true;
     }
 
-    public boolean setTokenAtPos(char token, Point position) {
-        if (position == null) return false;
-        if (board[position.getX()][position.getY()] != ' ') {
-            System.err.println("\nThis case is already used, Please choose an other...");
-            return false;
-        }
+    public void setTokenAtPos(char token, Point position) {
         board[position.getX()][position.getY()] = token;
-        return true;
     }
 }
