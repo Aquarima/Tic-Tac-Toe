@@ -1,5 +1,7 @@
 package fr.exalow.tictactoe.model;
 
+import java.util.Scanner;
+
 public class Board {
 
     private char[][] board = new char[3][3];
@@ -13,6 +15,7 @@ public class Board {
     }
 
     public void print() {
+        System.out.println("\nCurrent board layout :");
         System.out.println("\n    0   1   2");
         System.out.println("  -------------");
         for (int i = 0; i < 3; i++) {
@@ -57,6 +60,16 @@ public class Board {
     }
 
     public void setTokenAtPos(char token, int x, int y) {
+        Scanner scan = new Scanner(System.in);
+        while (board[x][y] != ' ' || x > 2 || x < 0 || y > 2 || y < 0) {
+            if (board[x][y] != ' ') System.out.println("\nThis case is already in use, Please choose an other !");
+            if (x > 2 || x < 0 || y > 2 || y < 0) System.out.println("\nInvalid coordinates, Please choose an other !");
+
+            System.out.print("(x:y): ");
+            String[] input = scan.nextLine().split(":");
+            x = Integer.parseInt(input[0]);
+            y = Integer.parseInt(input[1]);
+        }
         board[x][y] = token;
     }
 }

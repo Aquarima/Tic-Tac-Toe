@@ -14,10 +14,8 @@ public class TicTacToe {
     private Player pTwo;
 
     public TicTacToe() {
-
-        pOne = new Player("Exalow", 'X');
-        pTwo = new Player("BOT", 'O');
-
+        this.pOne = new Player("Exalow", 'X');
+        this.pTwo = new Player("BOT", 'O');
         this.currentPlayer = pOne;
     }
 
@@ -29,7 +27,7 @@ public class TicTacToe {
 
             Scanner scan = new Scanner(System.in);
 
-            System.out.print("Enter coordinates separated by a ':' : ");
+            System.out.print(currentPlayer.getName() + ", Enter an empty row and column to place your mark format (x:y): ");
             String[] input = scan.nextLine().split(":");
             board.setTokenAtPos(currentPlayer.getToken(), Integer.parseInt(input[0]), Integer.parseInt(input[1]));
 
@@ -40,7 +38,7 @@ public class TicTacToe {
                     return;
                 }
 
-                System.out.println("Player " + currentPlayer.getName() + " has won the game !");
+                System.out.println(currentPlayer.getName() + " has won the game !");
                 break;
             }
             switchCurrentPlayer();

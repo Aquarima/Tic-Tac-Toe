@@ -6,6 +6,7 @@ public class Player {
     private char token;
 
     public Player(String name, Character token) {
+        this.name = name;
         this.token = token;
     }
 
