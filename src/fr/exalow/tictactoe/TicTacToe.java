@@ -13,9 +13,9 @@ public class TicTacToe {
     private Player pOne;
     private Player pTwo;
 
-    public TicTacToe() {
-        this.pOne = new Player("Exalow", 'X');
-        this.pTwo = new Player("BOT", 'O');
+    public TicTacToe(Player pOne, Player pTwo) {
+        this.pOne = pOne;
+        this.pTwo = pTwo;
         this.currentPlayer = pOne;
     }
 
@@ -27,7 +27,7 @@ public class TicTacToe {
 
             Scanner scan = new Scanner(System.in);
 
-            System.out.print(currentPlayer.getName() + ", Enter an empty row and column to place your mark format (x:y): ");
+            System.out.print(currentPlayer.getName() + "(" + currentPlayer.getToken() + "), Enter an empty row and column to place your mark format (x:y): ");
             String[] input = scan.nextLine().split(":");
             board.setTokenAtPos(currentPlayer.getToken(), Integer.parseInt(input[0]), Integer.parseInt(input[1]));
 
